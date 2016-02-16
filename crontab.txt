@@ -1,0 +1,1 @@
+11 30 * * * /usr/local/bin/python /Users/yi/Developer/source/crontab
