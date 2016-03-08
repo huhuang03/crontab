@@ -27,7 +27,9 @@ def dealpath():
                 os.system("git commit -a -m 'auto commit'")
                 os.system("git push")
             else:
-                print "\tremote: " + remote
+                index = remote.find("\n", 0, len(remote))
+                remote = remote[0: index]
+                print "\tremote is not mine, remote: " + remote
         else:
             print "nothing to commit"
 
