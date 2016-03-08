@@ -7,6 +7,7 @@ for f in os.listdir(rootdir):
     path = os.path.join(rootdir, f)
     if os.path.isdir(path):
         os.chdir(path)
+        print "deal path: " + path
         rst = os.system("git remote -v > /dev/null 2>&1")
         if rst == 0:
             output = commands.getstatusoutput("git remote -v")
