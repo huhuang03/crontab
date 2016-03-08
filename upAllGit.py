@@ -3,19 +3,29 @@ import commands
 
 rootdir = "/Users/yi/Developer/source"
 
-for f in os.listdir(rootdir):
-    path = os.path.join(rootdir, f)
-    if os.path.isdir(path):
-        os.chdir(path)
-        print "deal path: " + path
-        rst = os.system("git remote -v > /dev/null 2>&1")
-        if rst == 0:
+def main():
+    for f in os.listdir(rootdir):
+        path = os.path.join(rootdir, f)
+        if os.path.isdir(path):
+            print "deal path: " + path
+            os.chdir(path)
+            dealpath()
+
+def dealpath():
+    rst = os.system("git remote -v > /dev/null 2>&1")
+    if rst == 0:
+        output = commands.getstatusoutput("git status")[1]
+        if not "nothing to commit" in output:
+            print "has commit"
             output = commands.getstatusoutput("git remote -v")
             remote = output[1]
-            # TODO: judge should upload
             # TODO: multiy thread
             if "https://github.com/huhuang03/" in remote or "git@gitlab.com:huhuang03" in remote:
                 os.system("git add .")
                 os.system("git commit -a -m 'auto commit'")
                 os.system("git push")
+        else:
+            print "nothing to commit"
 
+if __name__ == "__main__":
+    main()
