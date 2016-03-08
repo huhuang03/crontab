@@ -16,7 +16,7 @@ def dealpath():
     if rst == 0:
         output = commands.getstatusoutput("git status")[1]
         if not "nothing to commit" in output:
-            print "has commit"
+            print "\thas commit"
             output = commands.getstatusoutput("git remote -v")
             remote = output[1]
             # TODO: multiy thread
@@ -24,6 +24,8 @@ def dealpath():
                 os.system("git add .")
                 os.system("git commit -a -m 'auto commit'")
                 os.system("git push")
+            else:
+                print "remote: " + remote
         else:
             print "nothing to commit"
 
