@@ -21,7 +21,6 @@ def dealpath():
             print "\thas commit"
             output = commands.getstatusoutput("git remote -v")
             remote = output[1]
-            # TODO: multiy thread
             if "https://github.com/huhuang03/" in remote or "git@gitlab.com:huhuang03" in remote:
                 os.system("git add .")
                 os.system("git commit -a -m 'auto commit'")
