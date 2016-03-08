@@ -4,10 +4,12 @@ import commands
 rootdir = "/Users/yi/Developer/source"
 
 def main():
+    i = 1
     for f in os.listdir(rootdir):
         path = os.path.join(rootdir, f)
         if os.path.isdir(path):
-            print "deal path: " + path
+            print str(i) + ". deal path: " + path
+            i += 1
             os.chdir(path)
             dealpath()
 
