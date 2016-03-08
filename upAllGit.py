@@ -31,7 +31,7 @@ def dealpath():
                 remote = remote[0: index]
                 print "\tremote is not mine, remote: " + remote
         else:
-            print "nothing to commit"
+            print "\tnothing to commit"
 
 if __name__ == "__main__":
     main()
