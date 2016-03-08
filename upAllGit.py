@@ -25,7 +25,7 @@ def dealpath():
                 os.system("git commit -a -m 'auto commit'")
                 os.system("git push")
             else:
-                print "remote: " + remote
+                print "\tremote: " + remote
         else:
             print "nothing to commit"
 
