@@ -12,6 +12,7 @@ def main():
             i += 1
             os.chdir(path)
             dealpath()
+        print "Done!"
 
 def dealpath():
     rst = os.system("git remote -v > /dev/null 2>&1")
