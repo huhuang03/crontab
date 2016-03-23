@@ -1,7 +1,10 @@
 import os
 import commands
+import datetime
 
 rootdir = "/Users/yi/Developer/source"
+
+print "Begin at " + datetime.datetime.now().strftime('%G-%b-%d %I:%M:%p')
 
 def main():
     i = 1
