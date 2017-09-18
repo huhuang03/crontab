@@ -1,1 +1,1 @@
-30 11 * * * /usr/local/bin/python /Users/yi/Developer/source/crontab/upAllGit.py
+30 11 * * * /usr/local/bin/python /Users/th/source/crontab/upAllGit.py
