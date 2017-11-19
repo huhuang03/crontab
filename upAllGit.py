@@ -10,7 +10,7 @@ def main():
     i = 1
     for f in os.listdir(rootdir):
         path = os.path.join(rootdir, f)
-        if os.path.isdir(path):
+        if os.path.isdir(path) and os.access(path, os.W_OK):
             print str(i) + ". deal path: " + path
             i += 1
             os.chdir(path)
