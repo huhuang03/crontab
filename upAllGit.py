@@ -2,20 +2,21 @@ import os
 import commands
 import datetime
 
-rootdir = "/Users/th/source"
+rootdir = ["/Users/th/source", "/Users/th"]
 
 print "Begin at " + datetime.datetime.now().strftime('%G-%b-%d %I:%M:%p')
 
 def main():
     i = 1
-    for f in os.listdir(rootdir):
-        path = os.path.join(rootdir, f)
-        if os.path.isdir(path) and os.access(path, os.W_OK):
-            print str(i) + ". deal path: " + path
-            i += 1
-            os.chdir(path)
-            dealpath()
-        print "Done!"
+    for rd in rootdir:
+        for f in os.listdir(rd):
+            path = os.path.join(rd, f)
+            if os.path.isdir(path) and os.access(path, os.W_OK):
+                print str(i) + ". deal path: " + path
+                i += 1
+                os.chdir(path)
+                dealpath()
+            print "Done!"
 
 def dealpath():
     rst = os.system("git remote -v > /dev/null 2>&1")
