@@ -6,7 +6,12 @@ rootdir = ["/Users/th/source", "/Users/th"]
 
 print "Begin at " + datetime.datetime.now().strftime('%G-%b-%d %I:%M:%p')
 
+def syncMMDbAndMMXp():
+    os.system("rsync -av --delete ~/source/mm-tools/mmdb ~/source/MMdb/")
+    os.system("rsync -av --delete ~/source/mm-tools/mmxp ~/source/MMxp/")
+
 def main():
+    syncMMDbAndMMXp()
     i = 1
     for rd in rootdir:
         for f in os.listdir(rd):
