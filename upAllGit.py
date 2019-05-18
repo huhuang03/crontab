@@ -3,7 +3,7 @@ import datetime
 import subprocess
 import re
 
-rootdir = ["/Users/th/source", "/Users/th"]
+rootdir = ["/Users/th/source", "/Users/th", "/Users/th/source/learn"]
 
 print("Begin at " + datetime.datetime.now().strftime('%G-%b-%d %I:%M:%p'))
 
