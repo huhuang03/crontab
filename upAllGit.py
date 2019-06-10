@@ -5,6 +5,8 @@ import re
 
 rootdir = ["/Users/th/source", "/Users/th", "/Users/th/source/learn"]
 
+regs = [re.compile('origin\s*https://(github|gitlab).com/huhuang03/'), re.compile('origin\s*git@(github|gitlab).com:huhuang03'), re.compile('origin\s*git@(github|gitlab).com:th_')]
+
 print("Begin at " + datetime.datetime.now().strftime('%G-%b-%d %I:%M:%p'))
 
 def run_shell(shell):
@@ -29,8 +31,6 @@ def main():
                 dealpath(path)
 
 def dealpath(path):
-    reg1 = re.compile('origin\s*https://(github|gitlab).com/huhuang03/')
-    reg2 = re.compile('origin\s*git@(github|gitlab).com:huhuang03')
     if is_git_directory(path):
         print(f"handel project: {path}")
         output = run_shell(['git', 'status'])
@@ -39,7 +39,8 @@ def dealpath(path):
             if not "nothing to commit" in output:
                 print("has commit")
                 remote = run_shell(["git", "remote", '-v'])
-                if reg1.search(remote) or reg2.search(remote):
+
+                if any(reg.search(remote) for reg in regs):
                     os.system("git add .")
                     os.system("git commit -a -m 'auto commit'")
                     os.system("git push")
